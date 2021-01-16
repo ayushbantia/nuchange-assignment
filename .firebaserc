@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "default": "clone-frontend-7094b",
+    "deployment": "clone-fullstack-69087"
+  }
+}
