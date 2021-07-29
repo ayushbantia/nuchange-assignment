@@ -2,7 +2,7 @@ import React from "react";
 import "./product.css";
 import { useStateValue } from "./StateProvider";
 
-function Product({ id, title, image, price, rating }) {
+function Product({ id, title, image, price, rating, stock }) {
   const [{ basket }, dispatch] = useStateValue();
 
   const addToBasket = () => {
@@ -21,12 +21,17 @@ function Product({ id, title, image, price, rating }) {
   return (
     <div className="product">
       <div className="product__info">
-        <p>{title}</p>
+        <p className="product__title" >{title}</p>
         <p className="product__price">
           {/* <small>&#8377;</small> */}
-          <small>$</small>
-          <strong>{price}</strong>
+          <small>&#8377;</small>
+          <strong>{price}</strong> / kg
         </p>
+      <div className="product__fresh">
+        <img src="https://images-eu.ssl-images-amazon.com/images/G/31/ALMStores/UFG/ctnow/Logos/fresh_stacked_color.png" />  
+        <span className="product__availability">{stock ? "Available in-stock" : "Out of stock"}</span>
+      </div>
+
         <div className="product__rating">
           {Array(rating)
             .fill()
@@ -37,7 +42,6 @@ function Product({ id, title, image, price, rating }) {
       </div>
 
       <img src={image} alt={title} />
-
       <button onClick={addToBasket}>Add to Basket</button>
     </div>
   );
