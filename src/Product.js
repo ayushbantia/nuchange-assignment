@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./product.css";
 import { useStateValue } from "./StateProvider";
 
@@ -16,6 +16,7 @@ function Product({ id, title, image, price, rating, stock }) {
         rating: rating,
       },
     });
+
   };
 
   return (
